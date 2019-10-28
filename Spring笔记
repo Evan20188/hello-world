@@ -1,0 +1,31 @@
+spring-MVC肯定用过，在请求处理方法可出现和返回的参数类型中，最重要就是Model和ModelAndView了，对于MVC框架，控制器Controller执行业务逻辑，用于产生模型数据Model，而视图View用于渲染模型数据。
+Model和ModelAndView这两个类在spring的视图解析时作用以及区别：
+    Model只是用来传输数据的，并不会进行业务的寻址。ModelAndView 却是可以进行业务寻址的；
+    Model是每一次请求可以自动创建，但是ModelAndView 是需要我们自己去new的。
+  
+Model 是一个接口， 其实现类为ExtendedModelMap，继承了ModelMap类。
+ModelMap对象主要用于传递控制方法处理数据到结果页面，也就是说我们把结果页面上需要的数据放到ModelMap对象中即可， 
+他的作用类似于request对象的setAttribute方法的作用: 用来在一个请求过程中传递处理的数据。
+ModelMap或者Model通过addAttribute方法向页面传递参数。
+
+其中addAttribute方法参数有多种方式：
+public ModelMap addAttribute(String attributeName, Object attributeValue){...}
+public ModelMap addAttribute(Object attributeValue){...}
+public ModelMap addAllAttributes(Collection<?> attributeValues) {...}
+public ModelMap addAllAttributes(Map<String, ?> attributes){...}
+
+然后在jsp页面上可以通过el表达式语言$attributeName或者是C标签库下的方法，来获取并展示modelmap中的数据。 
+
+
+ModelAndView方法：
+  添加模型数据用addObject; 
+  设置视图setViewName; 
+  
+ModelAndView 对象有两个作用： 
+  (1). 设置转向地址,这也是ModelAndView和ModelMap的主要区别
+      ModelAndView view = new ModelAndView("path:student");
+  (2). 将控制器方法中处理的结果数据传递到结果页面
+      public ModelAndView addObject(String attributeName, Object attributeValue){...}
+      public ModelAndView addObject(Object attributeValue){...}
+      
+在jsp中：也是可以通过el表达式语言attributeName或者C标签库的attributeName或者C标签库的{name } 来获取并展示ModelAndView中的数据
