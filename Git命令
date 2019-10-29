@@ -1,0 +1,15 @@
+git branch -a  git branch -r 【查看分支】
+git checkout [分支名] 【切换分支】
+git reset [commit版本号] 【回滚版本】
+git push origin [分支名]  【推送】
+git commit -m [message] 【提交】
+git add [file] [【勾选该文件】
+git add . 【全部提交】
+git checkout . 【清空本地所有修改】
+git clean -f 【清空本地不受版本控制的文件】
+git log 【查看提交信息】
+git pull origin [分支名]   【拉取远程分支】
+git push -f 【强制推送】
+git chekcout -b [分支名] 【创建并跳转分支】
+git checkout [file] 【清除本地修改】
+git merge origin [分支名] 【合并到远程分支】
