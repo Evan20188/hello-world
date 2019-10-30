@@ -1,0 +1,4 @@
+Eureka Client：负责将各个服务的信息注册到Eureka Server中
+Eureka Server：注册中心，里面有一张注册表，保存了各个服务所在的机器和端口号
+
+
